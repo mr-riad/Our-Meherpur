@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Our Meherpur"),
+        title: Text("Our Meherpur",style: TextStyle(color: Colors.green,fontWeight: FontWeight.bold),),
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))],
       ),
       drawer: DrawerWidget(),
@@ -31,10 +31,38 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+          SizedBox(height: 10),
+
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 4,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                childAspectRatio: 0.85
+              ),
+              itemCount: 20,
+              itemBuilder: (context, index) {
+                return Card(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10,left: 10,right: 10,bottom: 6),
+                        child: Image.network(
+                          "https://golawenforcement.com/wp-content/uploads/2018/08/webdeveloperjobs.jpg",
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                        ),
+                      ),
+                      Text("Job", style: TextStyle(fontWeight: FontWeight.bold),),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
   }
 }
-
-
